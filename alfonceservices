@@ -1,0 +1,3533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐀𝐋𝐅𝐎𝐍𝐂𝐄 MK 𝗦𝗘𝗥𝗩𝗜𝗖𝗘𝗦</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --purple: #8a2be2;
+            --orange: #ff8c00;
+            --green: #3cb371;
+            --dark-red: #8b0000;
+            --gray: #808080;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            perspective: 1000px;
+        }
+
+        .title-container {
+            border: 3px solid var(--orange);
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transform: perspective(800px) rotateX(2deg);
+            transition: transform 0.3s;
+        }
+
+        .title-container:hover {
+            transform: perspective(800px) rotateX(0deg);
+        }
+
+        .alfonce-text {
+            background-color: var(--gray);
+            color: white;
+            padding: 5px 10px;
+            display: inline-block;
+            transform: translateZ(10px);
+        }
+
+        .services-text {
+            color: var(--dark-red);
+            padding: 5px 10px;
+            display: inline-block;
+            transform: translateZ(10px);
+        }
+
+        .shopping-icon {
+            background-color:orange;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transform: translateZ(15px);
+        }
+
+        .submenu-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .slide-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: perspective(800px) rotateX(2deg);
+            transition: transform 0.3s;
+        }
+
+        .slide-container:hover {
+            transform: perspective(800px) rotateX(0deg);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide-text {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .service-container {
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            transform: perspective(800px) rotateY(0deg);
+        }
+
+        @media (min-width: 768px) {
+            .service-container {
+                flex-direction: row;
+            }
+        }
+
+        .service-container:hover {
+            transform: perspective(800px) rotateY(2deg) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .service-image {
+                width: 4.5cm;
+                height: 4.5cm;
+                flex-shrink: 0;
+            }
+        }
+
+        .service-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .service-slide {
+            min-width: 100%;
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+        }
+
+        .service-content {
+            padding: 15px;
+            flex-grow: 1;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-title {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            background-color: var(--purple);
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateZ(5px);
+        }
+
+        .service-items {
+            color: black;
+            background-color:#CCCCCC;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transform: translateZ(2px);
+        }
+
+        .service-button {
+            background-color: var(--orange);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-button:hover {
+            background-color: darkorange;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            width: 200px;
+            height: 100px;
+            transform: perspective(800px) rotateY(0deg);
+        }
+
+        .contact-item:hover {
+            transform: perspective(800px) rotateY(5deg) translateZ(20px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--purple);
+        }
+
+        .contact-button {
+            background-color: var(--green);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s;
+        }
+        
+        .modal-content:hover {
+            transform: perspective(800px) rotateX(2deg);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            background-color: var(--orange);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--orange);
+            border-radius: 5px;
+            margin: 5px;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: perspective(800px) rotateX(0deg);
+        }
+        
+        .tab:hover {
+            transform: perspective(800px) rotateX(5deg) translateZ(10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab.active {
+            background-color: var(--purple);
+            color: white;
+            border-radius: 5px;
+            transform: perspective(800px) rotateX(0deg) translateZ(15px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .notification-item, .order-item, .service-item {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s;
+        }
+        
+        .notification-item:hover, .order-item:hover, .service-item:hover {
+            transform: perspective(800px) rotateX(2deg) translateZ(5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .reaction-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .reaction-button {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .reaction-button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .reaction-button.selected {
+            background-color: var(--purple);
+            color: white;
+        }
+
+        .comment-section {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .comment-form {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .comment-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .comment-button {
+            background-color: var(--green);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .comment-list {
+            margin-top: 10px;
+        }
+
+        .comment-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .comment-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .comment-author {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .delete-button {
+            background-color: var(--dark-red);
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .delete-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-video-container {
+            margin-bottom: 15px;
+        }
+
+        .admin-image-upload, .admin-section {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s;
+        }
+        
+        .admin-image-upload:hover, .admin-section:hover {
+            transform: perspective(800px) rotateX(2deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-button {
+            background-color: var(--purple);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .preview-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .preview-container {
+            position: relative;
+        }
+
+        .delete-preview {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--dark-red);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.2);
+            transform: perspective(800px) rotateX(-2deg);
+        }
+        
+        /* For dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #222;
+                color: #f0f0f0;
+            }
+            
+            .service-content, .service-items, .modal-content, .notification-item, 
+            .order-item, .service-item, .admin-image-upload, .admin-section {
+                background-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .form-input, .form-select, .comment-input {
+                background-color: #444;
+                color: #f0f0f0;
+                border-color: #555;
+            }
+            
+            .contact-item {
+                background-color: #333;
+                color: #f0f0f0;
+            }
+            
+            .comment-item {
+                background-color: #444;
+            }
+        }
+
+        .mobile-menu-button {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .submenu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                z-index: 50;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .submenu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+                background-color: var(--purple);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 8px 16px;
+                cursor: pointer;
+            }
+            
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            @media (prefers-color-scheme: dark) {
+                .submenu {
+                    background-color: #333;
+                }
+            }
+        }
+
+        .slideshow-upload-item {
+            margin-bottom: 15px;
+        }
+
+        .service-upload-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-upload-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        iframe#developer-preview {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .services-title-container {
+            background-color: black;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s;
+        }
+        
+        .services-title-container:hover {
+            transform: perspective(800px) rotateX(2deg) translateZ(10px);
+        }
+        
+        .location-button {
+            background-color: var(--green);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .location-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* New Developer Tab Styles */
+        .neon-button {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid black;
+        }
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-45deg);
+            transition: left 0.5s;
+        }
+        .neon-button:hover::before {
+            left: 100%;
+        }
+        .neon-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-45deg);
+            animation: neon-move 2s linear infinite;
+        }
+        @keyframes neon-move {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+        .neon-yellow::after {
+            background: rgba(255, 255, 0, 0.2);
+        }
+        .neon-blue::after {
+            background: rgba(0, 0, 255, 0.2);
+        }
+        .neon-green::after {
+            background: rgba(0, 255, 0, 0.2);
+        }
+        .neon-purple::after {
+            background: rgba(128, 0, 128, 0.2);
+        }
+        .neon-black::after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .slideshow-image {
+            display: none;
+            width: 100%;
+        }
+        .slideshow-image.active {
+            display: block;
+        }
+        .neon-text {
+            position: relative;
+            overflow: hidden;
+        }
+        .neon-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-45deg);
+            animation: neon-text-move 2s linear infinite;
+        }
+        @keyframes neon-text-move {
+            0% {
+                left: 100%;
+            }
+            50% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        @keyframes neon-color-change {
+            0% { color: #FF0000; }
+            25% { color: #00FF00; }
+            50% { color: #0000FF; }
+            75% { color: #FFFF00; }
+            100% { color: #FF0000; }
+        }
+        .neon-text h4 {
+            animation: neon-color-change 4s linear infinite;
+        }
+        .neon-background {
+            position: relative;
+            overflow: hidden;
+        }
+        .neon-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: neon-background-move 2s linear infinite;
+        }
+        @keyframes neon-background-move {
+            0% {
+                left: 100%;
+            }
+            50% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        /* Loader styling */
+        .location-loader {
+            display: inline-block;
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+        .location-loader:after {
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border: 2px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: location-loader 1.2s infinite;
+        }
+        @keyframes location-loader {
+            0% {
+                transform: rotate(0);
+                width: 0;
+                height: 0;
+            }
+            50% {
+                width: 20px;
+                height: 20px;
+            }
+            100% {
+                transform: rotate(360deg);
+                width: 0;
+                height: 0;
+            }
+        }
+
+        /* Contact form styles */
+        .get-in-touch-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: perspective(800px) rotateX(0deg);
+            transition: transform 0.3s;
+        }
+
+        .get-in-touch-container:hover {
+            transform: perspective(800px) rotateX(2deg);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .get-in-touch-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .send-email-button {
+            background-color: var(--purple);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .send-email-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: #7a1cd1;
+        }
+
+        /* Added styles for other services in admin panel */
+        .service-visibility-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--purple);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .get-in-touch-container {
+                background-color: #333;
+            }
+            
+            .toggle-slider {
+                background-color: #666;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-6">
+        <!-- Header with Title and Shopping Icon -->
+        <div class="title-container flex items-center justify-between mb-6">
+            <div class="flex items-center">
+                <div class="shopping-icon">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                </div>
+                <div class="title-text">
+                    <span class="alfonce-text text-2xl font-bold">𝐀𝐋𝐅𝐎𝐍𝐂𝐄</span>
+                    <span class="services-text text-2xl font-bold">𝗦𝗘𝗥𝗩𝗜𝗖𝗘𝗦</span>
+                </div>
+            </div>
+            <button class="mobile-menu-button mx-3">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+        </div>
+
+        <!-- Submenu/Navigation -->
+        <div class="submenu flex flex-wrap justify-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-6">
+            <div class="tab" data-tab="home">
+                <i class="fas fa-home submenu-icon" style="color: var(--purple);"></i>
+                Home
+            </div>
+            <div class="tab" data-tab="notifications">
+                <i class="fas fa-bell submenu-icon" style="color: var(--green);"></i>
+                Notifications
+            </div>
+            <div class="tab" data-tab="orders">
+                <i class="fas fa-shopping-bag submenu-icon" style="color: var(--orange);"></i>
+                Submitted Orders
+            </div>
+            <div class="tab" data-tab="other-services">
+                <i class="fas fa-concierge-bell submenu-icon" style="color: var(--purple);"></i>
+                Other Services
+            </div>
+            <div class="tab" data-tab="developer">
+                <i class="fas fa-code submenu-icon" style="color: var(--dark-red);"></i>
+                Developer
+            </div>
+            <div class="tab" data-tab="admin">
+                <i class="fas fa-user-shield submenu-icon" style="color: var(--green);"></i>
+                Admin Panel
+            </div>
+            <div class="tab" data-tab="owner">
+                <i class="fas fa-crown submenu-icon" style="color: var(--orange);"></i>
+                Owner Panel
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Home Tab (Default View) -->
+            <div class="tab-content active" id="home-content">
+                <!-- Slideshow -->
+                <div class="slide-container mb-8">
+                    <div class="slides">
+                        <!-- Slides will be inserted here via JavaScript -->
+                    </div>
+                    <div class="slide-text">Best university products and services in UDOM</div>
+                </div>
+
+                <!-- Services Section Title -->
+                <div class="services-title-container mb-6">
+                    <h2 class="text-2xl font-bold" style="color: var(--purple);">ՏᗴᖇᐯIᑕᗴՏ</h2>
+                    <p class="text-lg font-semibold" style="color: var(--orange);">[ 𝐅𝐑𝐄𝐄 𝐃𝐄𝐋𝐈𝐕𝐄𝐑𝐘 ]</p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="services-grid">
+                    <!-- Drawing Boards -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="drawing-boards">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗗𝗥𝗔𝗪𝗜𝗡𝗚 𝗕𝗢𝗔𝗥𝗗𝗦:</div>
+                            <div class="service-items">
+                                ▪️drawing boards<br>
+                                ▪️2H & 4H pencils<br>
+                                ▪️mechanical pencil<br>
+                                ▪️30 & 45 degree set square<br>
+                                ▪️360 degree protractor<br>
+                                ▪️T-square<br>
+                                ▪️Compass<br>
+                                ▪️french curves
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('Drawing Board')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- Mathematical Set -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="mathematical-set">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗠𝗔𝗧𝗛𝗘𝗠𝗔𝗧𝗜𝗖𝗔𝗟 𝗦𝗘𝗧:</div>
+                            <div class="service-items">
+                                ▪️protractor<br>
+                                ▪️ruler<br>
+                                ▪️set square<br>
+                                ▪️compass<br>
+                                ▪️divider<br>
+                                ▪️eraser<br>
+                                ▪️pencil
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('Mathematical Set')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- Routers -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="routers">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗥𝗢𝗨𝗧𝗘𝗥𝗦:</div>
+                            <div class="service-items">
+                                ▪️vodacom router<br>
+                                ▪️airtel router<br>
+                                ▪️yas router<br>
+                                ▪️pocket wi-fi (airtel)
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('Router')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- SIM Card Registration -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="sim-cards">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗦𝗜𝗠 𝗖𝗔𝗥𝗗 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗧𝗜𝗢𝗡:</div>
+                            <div class="service-items">
+                                ▪️vodacom<br>
+                                ▪️airtel<br>
+                                ▪️yas<br>
+                                ▪️halotel
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('SIM Card')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- SME Bundles Menu -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="sme-bundles">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗦𝗠𝗘 𝗕𝗨𝗡𝗗𝗟𝗘𝗦 𝗠𝗘𝗡𝗨:</div>
+                            <div class="service-items">
+                                ▪️vodacom SME<br>
+                                ▪️yas SME<br>
+                                ▪️airtel SME<br>
+                                ▪️halotel SME
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('SME Bundle')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- Papers -->
+                    <div class="service-container">
+                        <div class="service-image">
+                            <div class="service-slides" data-service="papers">
+                                <!-- Service slides will be inserted here via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-title">𝗣𝗔𝗣𝗘𝗥𝗦:</div>
+                            <div class="service-items">
+                                ▪️A3 papers<br>
+                                ▪️A4 papers<br>
+                                ▪️A2 papers
+                            </div>
+                            <div class="service-button" onclick="openOrderForm('Papers')">SELECT</div>
+                        </div>
+                    </div>
+
+                    <!-- Custom services from admin panel will be inserted here -->
+                    <div id="custom-services-container"></div>
+                </div>
+
+                <!-- GET IN TOUCH Section -->
+                <div class="get-in-touch-container">
+                    <h2 class="text-2xl font-bold text-center mb-6" style="color: var(--purple);">GET IN TOUCH</h2>
+                    <div class="get-in-touch-form">
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email Address:</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="Enter your email address">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">Message:</label>
+                            <textarea id="contact-message" class="form-input" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button id="send-email-button" class="send-email-button">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contact Us Section -->
+                <div class="mt-10">
+                    <h2 class="text-2xl font-bold text-center mb-6" style="color: var(--purple);">ᑕOᑎTᗩᑕT ᑌՏ</h2>
+                    <div class="contact-container">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="text-center w-full">
+                                <div class="font-semibold">Email</div>
+                                <div class="contact-button">Chat</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="text-center w-full">
+                                <div class="font-semibold">Phone</div>
+                                <div class="contact-button">Chat</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="text-center w-full">
+                                <div class="font-semibold">WhatsApp</div>
+                                <div class="contact-button" onclick="openWhatsApp()">Chat</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Tab -->
+            <div class="tab-content" id="notifications-content">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--purple);">Notifications</h2>
+                <div class="notifications-container">
+                    <!-- Notifications will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Submitted Orders Tab -->
+            <div class="tab-content" id="orders-content">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--purple);">Submitted Orders</h2>
+                <div class="orders-container">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Other Services Tab -->
+            <div class="tab-content" id="other-services-content">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--purple);">Other Services</h2>
+                <div class="other-services-container">
+                    <!-- Other services content will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Developer Tab -->
+            <div class="tab-content" id="developer-content">
+                <!-- Developer Section -->
+                <section class="py-12 bg-gray-100 dark:bg-gray-800 text-center rounded-lg shadow-lg">
+                    <div class="container mx-auto px-4">
+                        <button class="bg-orange-600 text-black px-6 py-3 rounded-full shadow-lg hover:bg-orange-700 focus:outline-none developer-button neon-button neon-purple font-bold" id="developerBtn">
+                            <i class="fas fa-code mr-2"></i>
+                            Contact developer for web service
+                        </button>
+                    </div>
+                </section>
+                
+                <!-- Slideshow Section -->
+                <section class="py-12 bg-gray-100 dark:bg-gray-800 text-center mt-6 rounded-lg shadow-lg">
+                    <div class="container mx-auto px-4">
+                        <div class="slideshow-container">
+                            <img alt="Image of a programmer working on a laptop" class="slideshow-image active" height="400" src="https://storage.googleapis.com/a1aa/image/DBCRrZyBXzz0RXIsjxI1Q6A5LFGQL8dGAMhplnjXQ70.jpg" width="800"/>
+                            <img alt="Image of a programmer writing code on a desktop computer" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/jhzs0AOicDu4i_4NpuHFcuwGyu-ZNqn4Tp4HsUrdEVY.jpg" width="800"/>
+                            <img alt="Screenshot of a modern website design" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/mplgMWkSmRdhGcG9RFrkghFcuf7Z8iadKAAVHdmkUhU.jpg" width="800"/>
+                            <img alt="Screenshot of a responsive website layout" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/vczS7P_5r3i7M5FKrpBBBiRwfvQIvjcKfs1phMIUMsk.jpg" width="800"/>
+                            <img alt="Image of a modern computer setup with multiple monitors" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/S4fKMp0ZEpxu9j7NRmEtOTMxUM1eUhHMetdvDJHlimY.jpg" width="800"/>
+                            <img alt="Image of a sleek laptop on a desk" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/GF43dclOwn0JgdXUVBi33eCkKQRW_hEUQPrz1VP8NU8.jpg" width="800"/>
+                            <img alt="Image of a programmer debugging code" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/0TOgZ-gH4jpjSOzwpp1bSlilVSWKbN14yO-tgVzP46c.jpg" width="800"/>
+                            <img alt="Screenshot of a creative website design" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/fcIun0rqyTLqvnSzQHWHnBWmwbRspUkjijTB1556NaU.jpg" width="800"/>
+                            <img alt="Image of a high-end gaming computer" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/__LPqRMtLJqBOV4DXeZ6Bnx0rnkJJwWRmCzmWE3B2cE.jpg" width="800"/>
+                            <img alt="Image of a programmer collaborating with a team" class="slideshow-image" height="400" src="https://storage.googleapis.com/a1aa/image/r6xh3Nnjoi44U2l8z8oiQJzudiGn8-M6eX1mpubIT_s.jpg" width="800"/>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Developer Modal -->
+                <div class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50" id="developerModal">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full modal-content">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-dark dark:text-white text-center w-full">𝗥𝗘𝗔𝗟 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-100">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-purple-600 bg-white">
+                                <img alt="Animated emoji of a technologist" class="w-full h-full object-cover" height="128" src="https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis/Emojis/People/Technologist.png" width="128">
+                                </img>
+                            </div>
+                            <div class="bg-purple-600 text-white py-2 px-4 rounded-md mb-2 neon-background">
+                                <h4 class="text-xl font-bold neon-text">𝐀𝐆𝐄𝐍𝐓_𝐑𝐄𝐙𝐎</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Web Developer & Designer</p>
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                <a class="flex items-center justify-center bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 neon-button neon-green" href="https://wa.me/255746623724" target="_blank">
+                                    <i class="fab fa-whatsapp mr-2"></i>
+                                    WhatsApp
+                                </a>
+                                <a class="flex items-center justify-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 neon-button neon-blue" href="mailto:agentrezo.37@gmail.com">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    Email
+                                </a>
+                                <a class="flex items-center justify-center bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 neon-button neon-black" href="tel:+255766839045">
+                                    <i class="fas fa-phone mr-2"></i>
+                                    Call
+                                </a>
+                                <a class="flex items-center justify-center bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 neon-button neon-yellow" href="sms:+255766839045">
+                                    <i class="fas fa-sms mr-2"></i>
+                                    SMS
+                                </a>
+                            </div>
+                            <h5 class="text-lg font-bold text-dark dark:text-white mb-2">Follow Us</h5>
+                            <div class="flex justify-center space-x-4">
+                                <a class="text-pink-500 hover:text-pink-600 text-2xl neon-button border-2 border-gray-300 rounded-full p-2" href="#" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300 text-2xl neon-button border-2 border-gray-300 rounded-full p-2" href="#" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a class="text-blue-600 hover:text-blue-700 text-2xl neon-button border-2 border-gray-300 rounded-full p-2" href="#" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a class="text-green-500 hover:text-green-600 text-2xl neon-button border-2 border-gray-300 rounded-full p-2" href="#" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="romanticMusic" preload="auto" src="https://www.bensound.com/bensound-music/bensound-dreams.mp3"></audio>
+            </div>
+
+            <!-- Admin Panel Tab -->
+            <div class="tab-content" id="admin-content">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--purple);">Admin Panel</h2>
+                
+                <div id="admin-login" class="admin-section">
+                    <h3 class="text-xl font-bold mb-4">Login to Admin Panel</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="admin-username">Username:</label>
+                        <input type="text" id="admin-username" class="form-input" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="admin-password">Password:</label>
+                        <input type="password" id="admin-password" class="form-input" placeholder="Enter password">
+                    </div>
+                    <button id="admin-login-button" class="admin-button">Login</button>
+                    <p id="admin-login-error" class="text-red-500 mt-2 hidden">Invalid username or password.</p>
+                </div>
+                
+                <div id="admin-dashboard" class="hidden">
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Edit Main Slideshow Text</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="slideshow-text">Slideshow Text:</label>
+                            <input type="text" id="slideshow-text" class="form-input" placeholder="Enter slideshow text">
+                        </div>
+                        <button id="update-slideshow-text" class="admin-button">Update Text</button>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Upload Slideshow Images</h3>
+                        <p class="mb-2">Upload up to 7 images for the main slideshow.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 1</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="0" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 2</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="1" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 3</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="2" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 4</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="3" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 5</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="4" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 6</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="5" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                            <div class="slideshow-upload-item p-3 border rounded">
+                                <h4 class="font-semibold mb-2">Slide 7</h4>
+                                <input type="file" class="slideshow-image-input mb-2" data-index="6" accept="image/*">
+                                <button class="admin-button slideshow-upload-btn w-full">Upload</button>
+                                <div class="preview-container mt-2 hidden">
+                                    <img class="preview-image w-full" src="" alt="Slide preview">
+                                </div>
+                            </div>
+                        </div>
+                        <button id="apply-slideshow-images" class="admin-button">Apply All Images to Slideshow</button>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Upload Service Category Images</h3>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">Drawing Boards</h4>
+                            <input type="file" id="drawing-boards-images" class="mb-2" accept="image/*">
+                            <button id="upload-drawing-boards" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="drawing-boards-preview"></div>
+                        </div>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">Mathematical Set</h4>
+                            <input type="file" id="mathematical-set-images" class="mb-2" accept="image/*">
+                            <button id="upload-mathematical-set" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="mathematical-set-preview"></div>
+                        </div>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">Routers</h4>
+                            <input type="file" id="routers-images" class="mb-2" accept="image/*">
+                            <button id="upload-routers" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="routers-preview"></div>
+                        </div>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">SIM Card Registration</h4>
+                            <input type="file" id="sim-cards-images" class="mb-2" accept="image/*">
+                            <button id="upload-sim-cards" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="sim-cards-preview"></div>
+                        </div>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">SME Bundles Menu</h4>
+                            <input type="file" id="sme-bundles-images" class="mb-2" accept="image/*">
+                            <button id="upload-sme-bundles" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="sme-bundles-preview"></div>
+                        </div>
+                        
+                        <div class="service-upload-item mb-4">
+                            <h4 class="font-semibold mb-2">Papers</h4>
+                            <input type="file" id="papers-images" class="mb-2" accept="image/*">
+                            <button id="upload-papers" class="admin-button">Upload Image</button>
+                            <div class="preview-container mt-2" id="papers-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Manage Other Services Content</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="other-service-title">Title:</label>
+                            <input type="text" id="other-service-title" class="form-input" placeholder="Enter title">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="other-service-description">Description:</label>
+                            <textarea id="other-service-description" class="form-input" rows="4" placeholder="Enter description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Upload Media:</label>
+                            <input type="file" id="other-service-media" accept="image/*,video/*">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="other-service-items">Service Items (one per line):</label>
+                            <textarea id="other-service-items" class="form-input" rows="4" placeholder="Enter service items, one per line with ▪️ at the beginning"></textarea>
+                        </div>
+                        <div class="service-visibility-toggle">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="show-on-main-page">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span>Show on main page</span>
+                        </div>
+                        <button id="add-other-service" class="admin-button">Add Service</button>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Add Notification</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="notification-message">Message:</label>
+                            <textarea id="notification-message" class="form-input" rows="4" placeholder="Enter notification message"></textarea>
+                        </div>
+                        <button id="add-notification" class="admin-button">Add Notification</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Owner Panel Tab -->
+            <div class="tab-content" id="owner-content">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--purple);">Owner Panel</h2>
+                
+                <div id="owner-login" class="admin-section">
+                    <h3 class="text-xl font-bold mb-4">Login to Owner Panel</h3>
+                    <div class="form-group">
+                        <label class="form-label" for="owner-password">Owner Password:</label>
+                        <input type="password" id="owner-password" class="form-input" placeholder="Enter owner password">
+                    </div>
+                    <button id="owner-login-button" class="admin-button">Login</button>
+                    <p id="owner-login-error" class="text-red-500 mt-2 hidden">Invalid password.</p>
+                </div>
+                
+                <div id="owner-dashboard" class="hidden">
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Edit Admin Panel Password</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="admin-new-username">New Admin Username:</label>
+                            <input type="text" id="admin-new-username" class="form-input" placeholder="Enter new admin username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="admin-new-password">New Admin Password:</label>
+                            <input type="password" id="admin-new-password" class="form-input" placeholder="Enter new admin password">
+                        </div>
+                        <button id="update-admin-credentials" class="admin-button">Update Credentials</button>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3 class="text-xl font-bold mb-4">Upload HTML Code for Developer Page</h3>
+                        <div class="form-group">
+                            <label class="form-label" for="developer-html-code">HTML Code:</label>
+                            <textarea id="developer-html-code" class="form-input" rows="10" placeholder="Enter HTML code"></textarea>
+                        </div>
+                        <button id="update-developer-code" class="admin-button">Update Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('order-modal')">×</span>
+            <h2 class="text-xl font-bold mb-4" style="color: var(--purple);">ENTER YOUR DETAILS</h2>
+            
+            <div class="form-group">
+                <label class="form-label" for="full-name">Full Name:</label>
+                <input type="text" id="full-name" class="form-input" placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" class="form-input" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="location">Select Location:</label>
+                <select id="location" class="form-select" onchange="locationChanged()">
+                    <option value="">Select your location</option>
+                    <option value="Udom">Udom</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <!-- Udom specific fields (hidden by default) -->
+            <div id="udom-fields" class="hidden">
+                <div class="form-group">
+                    <label class="form-label" for="college">College/School/Institute:</label>
+                    <input type="text" id="college" class="form-input" placeholder="Enter your college, school or institute">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="block-number">Block Number:</label>
+                    <input type="text" id="block-number" class="form-input" placeholder="Enter your block number">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="room-number">Room Number:</label>
+                    <input type="text" id="room-number" class="form-input" placeholder="Enter your room number">
+                </div>
+            </div>
+            
+            <!-- Other location field (hidden by default) -->
+            <div id="other-location" class="hidden">
+                <div class="form-group">
+                    <label class="form-label" for="other-location-detail">Location Details:</label>
+                    <input type="text" id="other-location-detail" class="form-input" placeholder="Enter your location details">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="service-type">Select Service:</label>
+                <select id="service-type" class="form-select" onchange="serviceTypeChanged()">
+                    <option value="">Select your service</option>
+                    <option value="Drawing board (new)">Drawing board (new)</option>
+                    <option value="Drawing board (used)">Drawing board (used)</option>
+                    <option value="Mathematical set">Mathematical set</option>
+                    <option value="Airtel router">Airtel router</option>
+                    <option value="Vodacom router">Vodacom router</option>
+                    <option value="Yas router">Yas router</option>
+                    <option value="Pocket wi-fi">Pocket wi-fi</option>
+                    <option value="A3 papers">A3 papers</option>
+                    <option value="A4 papers">A4 papers</option>
+                    <option value="A2 papers">A2 papers</option>
+                </select>
+            </div>
+            
+            <div id="amount-field" class="form-group hidden">
+                <label class="form-label" for="amount">Amount:</label>
+                <input type="number" id="amount" class="form-input" placeholder="Enter amount needed">
+            </div>
+            
+            <button id="share-location-btn" class="location-button">
+                <i class="fas fa-map-marker-alt"></i> Share live Location
+            </button>
+            <p id="location-status" class="mt-2 text-sm hidden"></p>
+            
+            <button class="submit-button mt-4" onclick="submitOrder()">Submit Order</button>
+        </div>
+    </div>
+
+    <!-- Other Service Order Form Modal -->
+    <div id="other-service-order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('other-service-order-modal')">×</span>
+            <h2 class="text-xl font-bold mb-4" style="color: var(--purple);">ENTER YOUR DETAILS</h2>
+            <h3 id="other-service-order-title" class="text-lg font-semibold mb-4"></h3>
+            
+            <div class="form-group">
+                <label class="form-label" for="other-service-full-name">Full Name:</label>
+                <input type="text" id="other-service-full-name" class="form-input" placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="other-service-phone-number">Phone Number:</label>
+                <input type="text" id="other-service-phone-number" class="form-input" placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="other-service-location">Select Location:</label>
+                <select id="other-service-location" class="form-select" onchange="otherServiceLocationChanged()">
+                    <option value="">Select your location</option>
+                    <option value="Udom">Udom</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <!-- Udom specific fields (hidden by default) -->
+            <div id="other-service-udom-fields" class="hidden">
+                <div class="form-group">
+                    <label class="form-label" for="other-service-college">College/School/Institute:</label>
+                    <input type="text" id="other-service-college" class="form-input" placeholder="Enter your college, school or institute">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="other-service-block-number">Block Number:</label>
+                    <input type="text" id="other-service-block-number" class="form-input" placeholder="Enter your block number">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="other-service-room-number">Room Number:</label>
+                    <input type="text" id="other-service-room-number" class="form-input" placeholder="Enter your room number">
+                </div>
+            </div>
+            
+            <!-- Other location field (hidden by default) -->
+            <div id="other-service-other-location" class="hidden">
+                <div class="form-group">
+                    <label class="form-label" for="other-service-other-location-detail">Location Details:</label>
+                    <input type="text" id="other-service-other-location-detail" class="form-input" placeholder="Enter your location details">
+                </div>
+            </div>
+            
+            <div id="other-service-amount-field" class="form-group">
+                <label class="form-label" for="other-service-amount">Amount:</label>
+                <input type="number" id="other-service-amount" class="form-input" placeholder="Enter amount needed">
+            </div>
+            
+            <button id="other-service-share-location-btn" class="location-button">
+                <i class="fas fa-map-marker-alt"></i> Share live Location
+            </button>
+            <p id="other-service-location-status" class="mt-2 text-sm hidden"></p>
+            
+            <input type="hidden" id="other-service-id">
+            <button class="submit-button mt-4" onclick="submitOtherServiceOrder()">Submit Order</button>
+        </div>
+    </div>
+
+    <!-- Comment Modal -->
+    <div id="comment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('comment-modal')">×</span>
+            <h2 class="text-xl font-bold mb-4" style="color: var(--purple);">Add a Comment</h2>
+            
+            <div class="form-group">
+                <label class="form-label" for="commenter-name">Your Name:</label>
+                <input type="text" id="commenter-name" class="form-input" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="comment-text">Comment:</label>
+                <textarea id="comment-text" class="form-input" rows="4" placeholder="Enter your comment"></textarea>
+            </div>
+            
+            <button id="submit-comment" class="admin-button">Submit Comment</button>
+        </div>
+    </div>
+    
+    <!-- Validation Error Modal -->
+    <div id="validation-modal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-red-600 text-center">Please complete all the required fields</h2>
+            <div class="flex justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="closeModal('validation-modal')">OK</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Password Error Modal -->
+    <div id="password-modal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-red-600 text-center">Incorrect password</h2>
+            <div class="flex justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="closeModal('password-modal')">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container mx-auto">
+            <p>© 2025 𝐀𝐋𝐅𝐎𝐍𝐂𝐄 𝐒𝐄𝐑𝐕𝐈𝐂𝐄𝐒. All rights reserved.</p>
+            <p class="mt-2">Providing quality services to university students.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Store data in sessionStorage simulation
+        const storage = {
+            setItem(key, value) {
+                try {
+                    // Store in variable and also try localStorage if available
+                    this[key] = JSON.stringify(value);
+                    try {
+                        if (typeof localStorage !== 'undefined') {
+                            localStorage.setItem(key, JSON.stringify(value));
+                        }
+                    } catch (e) {
+                        console.error('Error storing in localStorage:', e);
+                    }
+                } catch (e) {
+                    console.error('Error storing data:', e);
+                }
+            },
+            getItem(key) {
+                try {
+                    // Try to get from localStorage first, then fallback to variable
+                    let data = null;
+                    try {
+                        if (typeof localStorage !== 'undefined') {
+                            data = localStorage.getItem(key);
+                            if (data) {
+                                return JSON.parse(data);
+                            }
+                        }
+                    } catch (e) {
+                        console.error('Error retrieving from localStorage:', e);
+                    }
+                    
+                    return this[key] ? JSON.parse(this[key]) : null;
+                } catch (e) {
+                    console.error('Error retrieving data:', e);
+                    return null;
+                }
+            },
+            removeItem(key) {
+                delete this[key];
+                try {
+                    if (typeof localStorage !== 'undefined') {
+                        localStorage.removeItem(key);
+                    }
+                } catch (e) {
+                    console.error('Error removing from localStorage:', e);
+                }
+            }
+        };
+
+        // Generate a session ID for this browser session to track user reactions and orders
+        if (!storage.getItem('sessionId')) {
+            storage.setItem('sessionId', 'user_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9));
+        }
+
+        // Get the current user's session ID
+        function getCurrentUserId() {
+            return storage.getItem('sessionId');
+        }
+
+        // Initialize default data if not exists
+        function initializeDefaultData() {
+            // Admin credentials
+            if (!storage.getItem('adminCredentials')) {
+                storage.setItem('adminCredentials', {
+                    username: 'Astra',
+                    password: '@Astra123'
+                });
+            }
+            
+            // Owner password
+            if (!storage.getItem('ownerPassword')) {
+                storage.setItem('ownerPassword', 'owner123');
+            }
+            
+            // Slideshow text
+            if (!storage.getItem('slideshowText')) {
+                storage.setItem('slideshowText', 'Best university products and services in UDOM');
+            }
+            
+            // Individual slideshow images
+            for (let i = 0; i < 7; i++) {
+                const slideKey = `slideshowImage${i}`;
+                if (!storage.getItem(slideKey) && i < 3) {
+                    // Set default images for first 3 slides
+                    storage.setItem(slideKey, {
+                        url: `https://picsum.photos/id/${i+1}/800/400`,
+                        id: `slide${i}`
+                    });
+                }
+            }
+            
+            // Service images (placeholder data)
+            const serviceCategories = ['drawing-boards', 'mathematical-set', 'routers', 'sim-cards', 'sme-bundles', 'papers'];
+            serviceCategories.forEach(category => {
+                if (!storage.getItem(`${category}Images`)) {
+                    // Generate 5 placeholder images for each service
+                    const images = [];
+                    for (let i = 1; i <= 5; i++) {
+                        const seed = serviceCategories.indexOf(category) * 10 + i;
+                        images.push({
+                            url: `https://picsum.photos/id/${seed + 30}/450/450`,
+                            id: `${category}-${i}`
+                        });
+                    }
+                    storage.setItem(`${category}Images`, images);
+                }
+            });
+            
+            // Notifications
+            if (!storage.getItem('notifications')) {
+                storage.setItem('notifications', [
+                    {
+                        id: 'notif1',
+                        message: 'Welcome to ALFONCE SERVICES! We offer a wide range of university products and services.',
+                        timestamp: new Date().toISOString(),
+                        comments: [],
+                        reactions: {},
+                        userReactions: {} // Track which users have reacted
+                    }
+                ]);
+            }
+            
+            // Orders
+            if (!storage.getItem('orders')) {
+                storage.setItem('orders', []);
+            }
+            
+            // Other services
+            if (!storage.getItem('otherServices')) {
+                storage.setItem('otherServices', [
+                    {
+                        id: 'service1',
+                        title: 'Custom Printing Services',
+                        description: 'We offer custom printing services for all your academic needs.',
+                        mediaType: 'image',
+                        mediaUrl: 'https://picsum.photos/id/60/800/450',
+                        timestamp: new Date().toISOString(),
+                        reactions: {},
+                        userReactions: {},
+                        comments: [],
+                        items: '▪️Printing\n▪️Scanning\n▪️Photocopying\n▪️Binding',
+                        showOnMainPage: false
+                    }
+                ]);
+            }
+            
+            // Developer code
+            if (!storage.getItem('developerCode')) {
+                storage.setItem('developerCode', '<h1>Welcome to ALFONCE SERVICES</h1>\n<p>This is a sample HTML code.</p>');
+            }
+        }
+
+        // Initialize tabs functionality
+        function initializeTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected tab and content
+                    tab.classList.add('active');
+                    document.getElementById(`${tabName}-content`).classList.add('active');
+                    
+                    // Hide mobile menu after selection on mobile view
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.submenu').classList.remove('active');
+                    }
+                    
+                    // Load specific content based on tab
+                    if (tabName === 'notifications') {
+                        loadNotifications();
+                    } else if (tabName === 'orders') {
+                        loadOrders();
+                    } else if (tabName === 'other-services') {
+                        loadOtherServices();
+                    } else if (tabName === 'developer') {
+                        initializeDeveloperTab();
+                    }
+                });
+            });
+            
+            // Mobile menu button
+            document.querySelector('.mobile-menu-button').addEventListener('click', () => {
+                document.querySelector('.submenu').classList.toggle('active');
+            });
+        }
+
+        // Initialize developer tab functionality
+        function initializeDeveloperTab() {
+            // Initialize developer slideshow
+            initializeDeveloperSlideshow();
+            
+            // Initialize developer modal
+            const developerBtn = document.getElementById('developerBtn');
+            const developerModal = document.getElementById('developerModal');
+            const closeModalButtons = document.querySelectorAll('.close-modal');
+            const romanticMusic = document.getElementById('romanticMusic');
+            
+            developerBtn.addEventListener('click', () => {
+                developerModal.classList.remove('hidden');
+                developerModal.classList.add('flex');
+                romanticMusic.play();
+            });
+            
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    developerModal.classList.add('hidden');
+                    developerModal.classList.remove('flex');
+                    romanticMusic.pause();
+                    romanticMusic.currentTime = 0;
+                });
+            });
+        }
+        
+        // Initialize developer slideshow
+        function initializeDeveloperSlideshow() {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slideshow-image');
+            
+            function showSlides() {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove('active');
+                }
+                
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                
+                slides[slideIndex - 1].classList.add('active');
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+            
+            if (slides.length > 0) {
+                showSlides();
+            }
+        }
+
+        // Initialize slideshow
+        function initializeSlideshow() {
+            const slidesContainer = document.querySelector('.slides');
+            const slideshowText = storage.getItem('slideshowText') || 'Best university products and services in UDOM';
+            
+            // Set slideshow text
+            document.querySelector('.slide-text').textContent = slideshowText;
+            
+            // Clear existing slides
+            slidesContainer.innerHTML = '';
+            
+            // Get individual slideshow images
+            const slideshowImages = [];
+            for (let i = 0; i < 7; i++) {
+                const slideKey = `slideshowImage${i}`;
+                const slideImage = storage.getItem(slideKey);
+                if (slideImage) {
+                    slideshowImages.push(slideImage);
+                }
+            }
+            
+            // Add slides
+            slideshowImages.forEach(image => {
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.style.backgroundImage = `url(${image.url})`;
+                slidesContainer.appendChild(slide);
+            });
+            
+            // If no slides, add a default one
+            if (slideshowImages.length === 0) {
+                const defaultSlide = document.createElement('div');
+                defaultSlide.className = 'slide';
+                defaultSlide.style.backgroundImage = 'url(https://picsum.photos/id/1/800/400)';
+                slidesContainer.appendChild(defaultSlide);
+            }
+            
+            // Automatic slideshow
+            let slideIndex = 0;
+            
+            function showSlides() {
+                const slides = document.querySelectorAll('.slide');
+                if (slides.length === 0) return;
+                
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                
+                slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+                setTimeout(showSlides, 5000);
+            }
+            
+            showSlides();
+        }
+
+        // Initialize service slideshows
+        function initializeServiceSlideshows() {
+            const serviceCategories = ['drawing-boards', 'mathematical-set', 'routers', 'sim-cards', 'sme-bundles', 'papers'];
+            
+            serviceCategories.forEach(category => {
+                const images = storage.getItem(`${category}Images`) || [];
+                const slidesContainer = document.querySelector(`.service-slides[data-service="${category}"]`);
+                
+                // Clear existing slides
+                slidesContainer.innerHTML = '';
+                
+                // Add slides
+                images.forEach(image => {
+                    const slide = document.createElement('div');
+                    slide.className = 'service-slide';
+                    slide.style.backgroundImage = `url(${image.url})`;
+                    slidesContainer.appendChild(slide);
+                });
+                
+                // If no slides, add a default one
+                if (images.length === 0) {
+                    const defaultSlide = document.createElement('div');
+                    defaultSlide.className = 'service-slide';
+                    defaultSlide.style.backgroundImage = `url(https://picsum.photos/id/${serviceCategories.indexOf(category) + 40}/450/450)`;
+                    slidesContainer.appendChild(defaultSlide);
+                }
+                
+                // Automatic slideshow
+                let slideIndex = 0;
+                
+                function showSlides() {
+                    const slides = slidesContainer.querySelectorAll('.service-slide');
+                    if (slides.length === 0) return;
+                    
+                    slideIndex++;
+                    if (slideIndex >= slides.length) {
+                        slideIndex = 0;
+                    }
+                    
+                    slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+                    setTimeout(showSlides, 4000);
+                }
+                
+                showSlides();
+            });
+        }
+
+        // Load custom services to main page
+        function loadCustomServicesToMainPage() {
+            const services = storage.getItem('otherServices') || [];
+            const container = document.getElementById('custom-services-container');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            // Filter services that should be shown on main page
+            const mainPageServices = services.filter(service => service.showOnMainPage);
+            
+            // Add custom services to main page
+            mainPageServices.forEach(service => {
+                const serviceContainer = document.createElement('div');
+                serviceContainer.className = 'service-container';
+                
+                // Create service image part
+                const serviceImage = document.createElement('div');
+                serviceImage.className = 'service-image';
+                
+                const serviceSlides = document.createElement('div');
+                serviceSlides.className = 'service-slides';
+                serviceSlides.setAttribute('data-service', `custom-${service.id}`);
+                
+                const slide = document.createElement('div');
+                slide.className = 'service-slide';
+                
+                if (service.mediaType === 'image') {
+                    slide.style.backgroundImage = `url(${service.mediaUrl})`;
+                } else {
+                    // Create a fallback image for video services
+                    slide.style.backgroundImage = 'url(https://picsum.photos/id/42/450/450)';
+                }
+                
+                serviceSlides.appendChild(slide);
+                serviceImage.appendChild(serviceSlides);
+                
+                // Create service content part
+                const serviceContent = document.createElement('div');
+                serviceContent.className = 'service-content';
+                
+                const serviceTitle = document.createElement('div');
+                serviceTitle.className = 'service-title';
+                serviceTitle.textContent = service.title;
+                
+                const serviceItems = document.createElement('div');
+                serviceItems.className = 'service-items';
+                serviceItems.innerHTML = service.items ? service.items.replace(/\n/g, '<br>') : service.description;
+                
+                const serviceButton = document.createElement('div');
+                serviceButton.className = 'service-button';
+                serviceButton.textContent = 'SELECT';
+                serviceButton.addEventListener('click', () => {
+                    openOtherServiceOrderForm(service.id);
+                });
+                
+                serviceContent.appendChild(serviceTitle);
+                serviceContent.appendChild(serviceItems);
+                serviceContent.appendChild(serviceButton);
+                
+                // Combine image and content
+                serviceContainer.appendChild(serviceImage);
+                serviceContainer.appendChild(serviceContent);
+                
+                // Add to container
+                container.appendChild(serviceContainer);
+            });
+        }
+
+        // Load notifications
+        function loadNotifications() {
+            const notifications = storage.getItem('notifications') || [];
+            const container = document.querySelector('.notifications-container');
+            const sessionId = storage.getItem('sessionId');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            if (notifications.length === 0) {
+                container.innerHTML = '<p class="text-center py-4">No notifications yet.</p>';
+                return;
+            }
+            
+            // Add notifications
+            notifications.forEach(notification => {
+                const date = new Date(notification.timestamp);
+                const formattedDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+                
+                const notificationEl = document.createElement('div');
+                notificationEl.className = 'notification-item';
+                notificationEl.dataset.id = notification.id;
+                
+                // Initialize user reactions if not present
+                if (!notification.userReactions) {
+                    notification.userReactions = {};
+                }
+                
+                let reactionButtons = '';
+                const reactions = ['❤️', '👍', '👎', '🤝', '😱', '🌹', '💯', '💪', '🙌', '🔥'];
+                
+                // Check if user has already reacted
+                const userReaction = notification.userReactions[sessionId];
+                
+                reactions.forEach(reaction => {
+                    const count = notification.reactions[reaction] || 0;
+                    const isSelected = userReaction === reaction;
+                    reactionButtons += `
+                        <button class="reaction-button ${isSelected ? 'selected' : ''}" 
+                                data-reaction="${reaction}" 
+                                data-notification-id="${notification.id}">
+                            ${reaction} <span class="reaction-count">${count}</span>
+                        </button>
+                    `;
+                });
+                
+                // Create comments HTML
+                let commentsHtml = '';
+                if (notification.comments && notification.comments.length > 0) {
+                    commentsHtml = '<div class="comment-list">';
+                    notification.comments.forEach(comment => {
+                        commentsHtml += `
+                            <div class="comment-item">
+                                <span class="comment-author">${comment.name}:</span>
+                                <span>${comment.text}</span>
+                            </div>
+                        `;
+                    });
+                    commentsHtml += '</div>';
+                }
+                
+                notificationEl.innerHTML = `
+                    <p class="mb-2">${notification.message}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">${formattedDate}</p>
+                    <div class="reaction-buttons">${reactionButtons}</div>
+                    <div class="comment-section">
+                        ${commentsHtml}
+                        <button class="comment-button mt-2" data-notification-id="${notification.id}">
+                            Add Comment
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(notificationEl);
+            });
+            
+            // Add event listeners for reactions
+            document.querySelectorAll('.reaction-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const notificationId = this.getAttribute('data-notification-id');
+                    const reaction = this.getAttribute('data-reaction');
+                    addReaction(notificationId, reaction, 'notification');
+                });
+            });
+            
+            // Add event listeners for comments
+            document.querySelectorAll('.comment-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const notificationId = this.getAttribute('data-notification-id');
+                    openCommentModal(notificationId, 'notification');
+                });
+            });
+        }
+
+        // Add reaction
+        function addReaction(itemId, reaction, type) {
+            let items;
+            const sessionId = storage.getItem('sessionId');
+            
+            if (type === 'notification') {
+                items = storage.getItem('notifications') || [];
+            } else if (type === 'service') {
+                items = storage.getItem('otherServices') || [];
+            }
+            
+            const itemIndex = items.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                const item = items[itemIndex];
+                
+                if (!item.reactions) {
+                    item.reactions = {};
+                }
+                
+                if (!item.userReactions) {
+                    item.userReactions = {};
+                }
+                
+                // If user already reacted, remove previous reaction
+                const previousReaction = item.userReactions[sessionId];
+                if (previousReaction) {
+                    if (item.reactions[previousReaction] > 0) {
+                        item.reactions[previousReaction]--;
+                    }
+                }
+                
+                // Add new reaction
+                if (!item.reactions[reaction]) {
+                    item.reactions[reaction] = 0;
+                }
+                
+                item.reactions[reaction]++;
+                
+                // Store which reaction this user has made
+                item.userReactions[sessionId] = reaction;
+                
+                items[itemIndex] = item;
+                
+                if (type === 'notification') {
+                    storage.setItem('notifications', items);
+                    loadNotifications();
+                } else if (type === 'service') {
+                    storage.setItem('otherServices', items);
+                    loadOtherServices();
+                }
+            }
+        }
+
+        // Open comment modal
+        function openCommentModal(itemId, type) {
+            const modal = document.getElementById('comment-modal');
+            const submitButton = document.getElementById('submit-comment');
+            
+            // Store item info on the button for later use
+            submitButton.setAttribute('data-item-id', itemId);
+            submitButton.setAttribute('data-item-type', type);
+            
+            // Clear previous inputs
+            document.getElementById('commenter-name').value = '';
+            document.getElementById('comment-text').value = '';
+            
+            // Show modal
+            modal.style.display = 'block';
+            
+            // Set up submit event
+            submitButton.onclick = function() {
+                const name = document.getElementById('commenter-name').value.trim();
+                const text = document.getElementById('comment-text').value.trim();
+                
+                if (name && text) {
+                    addComment(itemId, name, text, type);
+                    closeModal('comment-modal');
+                } else {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                }
+            };
+        }
+
+        // Add comment
+        function addComment(itemId, name, text, type) {
+            let items;
+            
+            if (type === 'notification') {
+                items = storage.getItem('notifications') || [];
+            } else if (type === 'service') {
+                items = storage.getItem('otherServices') || [];
+            }
+            
+            const itemIndex = items.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+                const item = items[itemIndex];
+                
+                if (!item.comments) {
+                    item.comments = [];
+                }
+                
+                item.comments.push({
+                    name: name,
+                    text: text,
+                    timestamp: new Date().toISOString()
+                });
+                
+                items[itemIndex] = item;
+                
+                if (type === 'notification') {
+                    storage.setItem('notifications', items);
+                    loadNotifications();
+                } else if (type === 'service') {
+                    storage.setItem('otherServices', items);
+                    loadOtherServices();
+                }
+            }
+        }
+
+        // Load orders
+        function loadOrders() {
+            const allOrders = storage.getItem('orders') || [];
+            const currentUserId = getCurrentUserId();
+            
+            // Filter orders to only show the ones submitted by the current user
+            const userOrders = allOrders.filter(order => order.userId === currentUserId);
+            
+            const container = document.querySelector('.orders-container');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            if (userOrders.length === 0) {
+                container.innerHTML = '<p class="text-center py-4">No orders submitted yet.</p>';
+                return;
+            }
+            
+            // Add orders
+            userOrders.forEach(order => {
+                const date = new Date(order.timestamp);
+                const formattedDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+                
+                const orderEl = document.createElement('div');
+                orderEl.className = 'order-item';
+                orderEl.dataset.id = order.id;
+                
+                let locationDetails = '';
+                if (order.location === 'Udom') {
+                    locationDetails = `
+                        <p><strong>College/School/Institute:</strong> ${order.college || 'N/A'}</p>
+                        <p><strong>Block Number:</strong> ${order.blockNumber || 'N/A'}</p>
+                        <p><strong>Room Number:</strong> ${order.roomNumber || 'N/A'}</p>
+                    `;
+                } else {
+                    locationDetails = `<p><strong>Location Details:</strong> ${order.otherLocation || 'N/A'}</p>`;
+                }
+                
+                // Add geolocation if available
+                let geoLocationHtml = '';
+                if (order.latitude && order.longitude) {
+                    geoLocationHtml = `
+                        <p class="mt-2"><strong>GPS Location:</strong></p>
+                        <p>Latitude: ${order.latitude}</p>
+                        <p>Longitude: ${order.longitude}</p>
+                        <a href="https://maps.google.com/?q=${order.latitude},${order.longitude}" target="_blank" class="text-blue-500 underline">View on Google Maps</a>
+                    `;
+                }
+                
+                orderEl.innerHTML = `
+                    <h3 class="text-lg font-bold mb-2">${order.service}</h3>
+                    <p><strong>Name:</strong> ${order.name}</p>
+                    <p><strong>Phone:</strong> ${order.phone}</p>
+                    <p><strong>Location:</strong> ${order.location}</p>
+                    ${locationDetails}
+                    ${order.amount ? `<p><strong>Amount:</strong> ${order.amount}</p>` : ''}
+                    ${geoLocationHtml}
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">${formattedDate}</p>
+                    <button class="delete-button" data-id="${order.id}">Delete</button>
+                `;
+                
+                container.appendChild(orderEl);
+            });
+            
+            // Add event listeners for delete buttons
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const orderId = this.getAttribute('data-id');
+                    deleteOrder(orderId);
+                });
+            });
+        }
+
+        // Delete order
+        function deleteOrder(orderId) {
+            const orders = storage.getItem('orders') || [];
+            const updatedOrders = orders.filter(order => order.id !== orderId);
+            storage.setItem('orders', updatedOrders);
+            loadOrders();
+        }
+
+        // Load other services
+        function loadOtherServices() {
+            const services = storage.getItem('otherServices') || [];
+            const container = document.querySelector('.other-services-container');
+            const sessionId = storage.getItem('sessionId');
+            
+            // Clear existing content
+            container.innerHTML = '';
+            
+            if (services.length === 0) {
+                container.innerHTML = '<p class="text-center py-4">No additional services available yet.</p>';
+                return;
+            }
+            
+            // Add services
+            services.forEach(service => {
+                const date = new Date(service.timestamp);
+                const formattedDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+                
+                const serviceEl = document.createElement('div');
+                serviceEl.className = 'service-item';
+                serviceEl.dataset.id = service.id;
+                
+                let mediaHtml = '';
+                if (service.mediaType === 'image') {
+                    mediaHtml = `<img src="${service.mediaUrl}" alt="${service.title}" class="w-full h-auto rounded mb-3">`;
+                } else if (service.mediaType === 'video') {
+                    mediaHtml = `<video src="${service.mediaUrl}" controls class="w-full h-auto rounded mb-3"></video>`;
+                }
+                
+                // Initialize user reactions if not present
+                if (!service.userReactions) {
+                    service.userReactions = {};
+                }
+                
+                let reactionButtons = '';
+                const reactions = ['❤️', '👍', '👎', '🤝', '😱', '🌹', '💯', '💪', '🙌', '🔥'];
+                
+                // Check if user has already reacted
+                const userReaction = service.userReactions[sessionId];
+                
+                reactions.forEach(reaction => {
+                    const count = service.reactions?.[reaction] || 0;
+                    const isSelected = userReaction === reaction;
+                    reactionButtons += `
+                        <button class="reaction-button ${isSelected ? 'selected' : ''}" 
+                                data-reaction="${reaction}" 
+                                data-service-id="${service.id}">
+                            ${reaction} <span class="reaction-count">${count}</span>
+                        </button>
+                    `;
+                });
+                
+                // Create comments HTML
+                let commentsHtml = '';
+                if (service.comments && service.comments.length > 0) {
+                    commentsHtml = '<div class="comment-list">';
+                    service.comments.forEach(comment => {
+                        commentsHtml += `
+                            <div class="comment-item">
+                                <span class="comment-author">${comment.name}:</span>
+                                <span>${comment.text}</span>
+                            </div>
+                        `;
+                    });
+                    commentsHtml += '</div>';
+                }
+                
+                // Format service items if available
+                let serviceItemsHtml = '';
+                if (service.items) {
+                    serviceItemsHtml = `
+                        <div class="service-items mb-3">
+                            ${service.items.replace(/\n/g, '<br>')}
+                        </div>
+                    `;
+                }
+                
+                serviceEl.innerHTML = `
+                    <h3 class="text-lg font-bold mb-2 p-2 bg-purple-600 text-white rounded">${service.title}</h3>
+                    ${mediaHtml}
+                    <p class="mb-3">${service.description}</p>
+                    ${serviceItemsHtml}
+                    <button class="service-button mb-3" data-service-id="${service.id}">SELECT</button>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">${formattedDate}</p>
+                    <div class="reaction-buttons">${reactionButtons}</div>
+                    <div class="comment-section">
+                        ${commentsHtml}
+                        <button class="comment-button mt-2" data-service-id="${service.id}">
+                            Add Comment
+                        </button>
+                    </div>
+                `;
+                
+                // Check if we're in admin mode to add delete button
+                const adminCredentials = storage.getItem('adminCredentials');
+                const currentUsername = storage.getItem('currentAdminUsername');
+                const currentPassword = storage.getItem('currentAdminPassword');
+                
+                if (adminCredentials && currentUsername === adminCredentials.username && currentPassword === adminCredentials.password) {
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'delete-button mt-3';
+                    deleteButton.setAttribute('data-id', service.id);
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', function() {
+                        deleteService(service.id);
+                    });
+                    
+                    serviceEl.appendChild(deleteButton);
+                }
+                
+                container.appendChild(serviceEl);
+            });
+            
+            // Add event listeners for reactions
+            document.querySelectorAll('.service-item .reaction-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service-id');
+                    const reaction = this.getAttribute('data-reaction');
+                    addReaction(serviceId, reaction, 'service');
+                });
+            });
+            
+            // Add event listeners for comments
+            document.querySelectorAll('.service-item .comment-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service-id');
+                    openCommentModal(serviceId, 'service');
+                });
+            });
+            
+            // Add event listeners for service SELECT buttons
+            document.querySelectorAll('.service-item .service-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service-id');
+                    openOtherServiceOrderForm(serviceId);
+                });
+            });
+        }
+
+        // Open other service order form
+        function openOtherServiceOrderForm(serviceId) {
+            const services = storage.getItem('otherServices') || [];
+            const service = services.find(s => s.id === serviceId);
+            
+            if (!service) return;
+            
+            // Set the title in the form
+            document.getElementById('other-service-order-title').textContent = service.title;
+            
+            // Store service ID for submission
+            document.getElementById('other-service-id').value = serviceId;
+            
+            // Clear form fields
+            document.getElementById('other-service-full-name').value = '';
+            document.getElementById('other-service-phone-number').value = '';
+            document.getElementById('other-service-location').selectedIndex = 0;
+            document.getElementById('other-service-college').value = '';
+            document.getElementById('other-service-block-number').value = '';
+            document.getElementById('other-service-room-number').value = '';
+            document.getElementById('other-service-other-location-detail').value = '';
+            document.getElementById('other-service-amount').value = '';
+            
+            // Hide additional location fields
+            document.getElementById('other-service-udom-fields').classList.add('hidden');
+            document.getElementById('other-service-other-location').classList.add('hidden');
+            
+            // Clear temporary location variables
+            window.otherServiceTempLatitude = null;
+            window.otherServiceTempLongitude = null;
+            
+            // Reset location status
+            const locationStatus = document.getElementById('other-service-location-status');
+            locationStatus.classList.add('hidden');
+            
+            // Reset location button
+            const locationBtn = document.getElementById('other-service-share-location-btn');
+            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+            locationBtn.disabled = false;
+            
+            // Add click event for share location button
+            document.getElementById('other-service-share-location-btn').onclick = shareOtherServiceLocation;
+            
+            // Show the modal
+            document.getElementById('other-service-order-modal').style.display = 'block';
+        }
+
+        // Other service location changed
+        function otherServiceLocationChanged() {
+            const location = document.getElementById('other-service-location').value;
+            const udomFields = document.getElementById('other-service-udom-fields');
+            const otherLocation = document.getElementById('other-service-other-location');
+            
+            if (location === 'Udom') {
+                udomFields.classList.remove('hidden');
+                otherLocation.classList.add('hidden');
+            } else if (location === 'Other') {
+                udomFields.classList.add('hidden');
+                otherLocation.classList.remove('hidden');
+            } else {
+                udomFields.classList.add('hidden');
+                otherLocation.classList.add('hidden');
+            }
+        }
+
+        // Share location for other services
+        function shareOtherServiceLocation() {
+            const locationBtn = document.getElementById('other-service-share-location-btn');
+            const locationStatus = document.getElementById('other-service-location-status');
+            
+            // Change button text and add loader
+            locationBtn.innerHTML = '<span class="location-loader mr-2"></span> Detecting location...';
+            locationBtn.disabled = true;
+            
+            // Show status loading message
+            locationStatus.classList.remove('hidden');
+            locationStatus.textContent = 'Requesting location...';
+            locationStatus.className = 'mt-2 text-sm text-gray-600';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Wait for 4 seconds to simulate loading
+                        setTimeout(() => {
+                            // Store the location in temporary variables for the order
+                            window.otherServiceTempLatitude = position.coords.latitude;
+                            window.otherServiceTempLongitude = position.coords.longitude;
+                            
+                            // Update button text and re-enable
+                            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Location Detected';
+                            locationBtn.disabled = false;
+                            
+                            // Show success message
+                            locationStatus.textContent = 'Location detected successfully!';
+                            locationStatus.className = 'mt-2 text-sm text-green-600 font-semibold';
+                        }, 4000);
+                    },
+                    (error) => {
+                        setTimeout(() => {
+                            let errorMessage = 'Error getting location: ';
+                            
+                            switch(error.code) {
+                                case error.PERMISSION_DENIED:
+                                    errorMessage += 'Location permission denied.';
+                                    break;
+                                case error.POSITION_UNAVAILABLE:
+                                    errorMessage += 'Location information unavailable.';
+                                    break;
+                                case error.TIMEOUT:
+                                    errorMessage += 'Location request timed out.';
+                                    break;
+                                default:
+                                    errorMessage += 'Unknown error occurred.';
+                                    break;
+                            }
+                            
+                            // Reset button
+                            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+                            locationBtn.disabled = false;
+                            
+                            // Show error
+                            locationStatus.textContent = errorMessage;
+                            locationStatus.className = 'mt-2 text-sm text-red-600';
+                        }, 4000);
+                    }
+                );
+            } else {
+                setTimeout(() => {
+                    // Reset button
+                    locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+                    locationBtn.disabled = false;
+                    
+                    // Show error
+                    locationStatus.textContent = 'Geolocation is not supported by this browser.';
+                    locationStatus.className = 'mt-2 text-sm text-red-600';
+                }, 4000);
+            }
+        }
+
+        // Submit other service order
+        function submitOtherServiceOrder() {
+            const name = document.getElementById('other-service-full-name').value.trim();
+            const phone = document.getElementById('other-service-phone-number').value.trim();
+            const location = document.getElementById('other-service-location').value;
+            const serviceId = document.getElementById('other-service-id').value;
+            const amount = document.getElementById('other-service-amount').value;
+            
+            // Get the service details
+            const services = storage.getItem('otherServices') || [];
+            const service = services.find(s => s.id === serviceId);
+            
+            if (!service) {
+                alert('Service not found');
+                return;
+            }
+            
+            // Validate required fields
+            if (!name || !phone || !location) {
+                // Show the validation modal
+                document.getElementById('validation-modal').style.display = 'block';
+                return;
+            }
+            
+            // Get location details based on location type
+            let locationDetails = {};
+            
+            if (location === 'Udom') {
+                locationDetails = {
+                    college: document.getElementById('other-service-college').value.trim(),
+                    blockNumber: document.getElementById('other-service-block-number').value.trim(),
+                    roomNumber: document.getElementById('other-service-room-number').value.trim()
+                };
+            } else if (location === 'Other') {
+                locationDetails = {
+                    otherLocation: document.getElementById('other-service-other-location-detail').value.trim()
+                };
+            }
+            
+            // Get current user ID
+            const userId = getCurrentUserId();
+            
+            // Create order object with geolocation if available
+            const order = {
+                id: `order-${Date.now()}`,
+                userId: userId, // Add user ID to order
+                name: name,
+                phone: phone,
+                location: location,
+                service: service.title,
+                amount: amount,
+                timestamp: new Date().toISOString(),
+                ...locationDetails
+            };
+            
+            // Add geolocation if available
+            if (window.otherServiceTempLatitude && window.otherServiceTempLongitude) {
+                order.latitude = window.otherServiceTempLatitude;
+                order.longitude = window.otherServiceTempLongitude;
+            }
+            
+            // Save order
+            const orders = storage.getItem('orders') || [];
+            orders.push(order);
+            storage.setItem('orders', orders);
+            
+            // Auto navigate to the orders tab and reload orders
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to orders tab and content
+            document.querySelector('.tab[data-tab="orders"]').classList.add('active');
+            document.getElementById('orders-content').classList.add('active');
+            
+            // Load orders
+            loadOrders();
+            
+            // Prepare WhatsApp message
+            let message = `*New Order from ALFONCE SERVICES*\n\n`;
+            message += `*Service:* ${service.title}\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Phone:* ${phone}\n`;
+            message += `*Location:* ${location}\n`;
+            
+            if (location === 'Udom') {
+                message += `*College/School/Institute:* ${locationDetails.college || 'N/A'}\n`;
+                message += `*Block Number:* ${locationDetails.blockNumber || 'N/A'}\n`;
+                message += `*Room Number:* ${locationDetails.roomNumber || 'N/A'}\n`;
+            } else {
+                message += `*Location Details:* ${locationDetails.otherLocation || 'N/A'}\n`;
+            }
+            
+            if (amount) {
+                message += `*Amount:* ${amount}\n`;
+            }
+            
+            // Add GPS location if available
+            if (order.latitude && order.longitude) {
+                message += `\n*GPS Location:* https://maps.google.com/?q=${order.latitude},${order.longitude}\n`;
+            }
+            
+            // Open WhatsApp with the message
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/255766839045?text=${encodedMessage}`, '_blank');
+            
+            // Close modal
+            closeModal('other-service-order-modal');
+        }
+
+        // Delete service
+        function deleteService(serviceId) {
+            const services = storage.getItem('otherServices') || [];
+            const updatedServices = services.filter(service => service.id !== serviceId);
+            storage.setItem('otherServices', updatedServices);
+            loadOtherServices();
+            
+            // Also refresh the main page to remove any custom services
+            loadCustomServicesToMainPage();
+        }
+
+        // Initialize admin panel
+        function initializeAdminPanel() {
+            const adminLoginButton = document.getElementById('admin-login-button');
+            const adminLoginError = document.getElementById('admin-login-error');
+            const adminLogin = document.getElementById('admin-login');
+            const adminDashboard = document.getElementById('admin-dashboard');
+            
+            adminLoginButton.addEventListener('click', () => {
+                const username = document.getElementById('admin-username').value;
+                const password = document.getElementById('admin-password').value;
+                const adminCredentials = storage.getItem('adminCredentials');
+                
+                if (username === adminCredentials.username && password === adminCredentials.password) {
+                    // Store current admin session
+                    storage.setItem('currentAdminUsername', username);
+                    storage.setItem('currentAdminPassword', password);
+                    
+                    adminLogin.classList.add('hidden');
+                    adminDashboard.classList.remove('hidden');
+                    
+                    // Load slideshow text
+                    document.getElementById('slideshow-text').value = storage.getItem('slideshowText') || '';
+                    
+                    // Load slideshow previews
+                    loadSlideshowPreviews();
+                    
+                    // Load service category previews
+                    loadServicePreviews();
+                } else {
+                    // Show password error modal instead of just text
+                    document.getElementById('password-modal').style.display = 'block';
+                }
+            });
+            
+            // Update slideshow text
+            document.getElementById('update-slideshow-text').addEventListener('click', () => {
+                const newText = document.getElementById('slideshow-text').value;
+                storage.setItem('slideshowText', newText);
+                document.querySelector('.slide-text').textContent = newText;
+                alert('Slideshow text updated!');
+            });
+            
+            // Setup individual slideshow image uploads
+            document.querySelectorAll('.slideshow-upload-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const container = this.closest('.slideshow-upload-item');
+                    const fileInput = container.querySelector('.slideshow-image-input');
+                    const index = fileInput.getAttribute('data-index');
+                    const files = fileInput.files;
+                    
+                    if (files.length === 0) {
+                        alert('Please select an image to upload.');
+                        return;
+                    }
+                    
+                    const file = files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const slideImage = {
+                            url: e.target.result,
+                            id: `slide${index}`
+                        };
+                        
+                        // Store in specific slideshow slot
+                        storage.setItem(`slideshowImage${index}`, slideImage);
+                        
+                        // Show preview
+                        const previewContainer = container.querySelector('.preview-container');
+                        const previewImage = container.querySelector('.preview-image');
+                        previewImage.src = e.target.result;
+                        previewContainer.classList.remove('hidden');
+                    };
+                    
+                    reader.readAsDataURL(file);
+                });
+            });
+            
+            // Apply all images to slideshow
+            document.getElementById('apply-slideshow-images').addEventListener('click', () => {
+                initializeSlideshow();
+                alert('Slideshow images applied successfully!');
+            });
+            
+            // Setup individual service category image uploads
+            const serviceCategories = ['drawing-boards', 'mathematical-set', 'routers', 'sim-cards', 'sme-bundles', 'papers'];
+            
+            serviceCategories.forEach(category => {
+                document.getElementById(`upload-${category}`).addEventListener('click', () => {
+                    const fileInput = document.getElementById(`${category}-images`);
+                    const files = fileInput.files;
+                    
+                    if (files.length === 0) {
+                        alert('Please select an image to upload.');
+                        return;
+                    }
+                    
+                    const file = files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        // Get existing images
+                        const images = storage.getItem(`${category}Images`) || [];
+                        
+                        // Add new image
+                        images.push({
+                            url: e.target.result,
+                            id: `${category}-${Date.now()}`
+                        });
+                        
+                        // Limit to 5 images
+                        if (images.length > 5) {
+                            images.shift(); // Remove oldest image
+                        }
+                        
+                        // Store updated images
+                        storage.setItem(`${category}Images`, images);
+                        
+                        // Refresh previews
+                        loadServiceCategoryPreview(category);
+                        
+                        // Update service slideshows
+                        initializeServiceSlideshows();
+                        
+                        alert(`Image added to ${category.replace('-', ' ')}!`);
+                    };
+                    
+                    reader.readAsDataURL(file);
+                });
+            });
+            
+            // Add other service
+            document.getElementById('add-other-service').addEventListener('click', () => {
+                const title = document.getElementById('other-service-title').value.trim();
+                const description = document.getElementById('other-service-description').value.trim();
+                const mediaFile = document.getElementById('other-service-media').files[0];
+                const items = document.getElementById('other-service-items').value.trim();
+                const showOnMainPage = document.getElementById('show-on-main-page').checked;
+                
+                if (!title || !description) {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                    return;
+                }
+                
+                if (!mediaFile) {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const services = storage.getItem('otherServices') || [];
+                    
+                    services.push({
+                        id: `service-${Date.now()}`,
+                        title: title,
+                        description: description,
+                        mediaType: mediaFile.type.startsWith('image/') ? 'image' : 'video',
+                        mediaUrl: e.target.result,
+                        timestamp: new Date().toISOString(),
+                        reactions: {},
+                        userReactions: {},
+                        comments: [],
+                        items: items,
+                        showOnMainPage: showOnMainPage
+                    });
+                    
+                    storage.setItem('otherServices', services);
+                    
+                    // Clear form
+                    document.getElementById('other-service-title').value = '';
+                    document.getElementById('other-service-description').value = '';
+                    document.getElementById('other-service-media').value = '';
+                    document.getElementById('other-service-items').value = '';
+                    document.getElementById('show-on-main-page').checked = false;
+                    
+                    // Refresh the main page if needed
+                    if (showOnMainPage) {
+                        loadCustomServicesToMainPage();
+                    }
+                    
+                    alert('Service added successfully!');
+                };
+                
+                reader.readAsDataURL(mediaFile);
+            });
+            
+            // Add notification
+            document.getElementById('add-notification').addEventListener('click', () => {
+                const message = document.getElementById('notification-message').value.trim();
+                
+                if (!message) {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                    return;
+                }
+                
+                const notifications = storage.getItem('notifications') || [];
+                
+                notifications.push({
+                    id: `notif-${Date.now()}`,
+                    message: message,
+                    timestamp: new Date().toISOString(),
+                    reactions: {},
+                    userReactions: {},
+                    comments: []
+                });
+                
+                storage.setItem('notifications', notifications);
+                
+                // Clear form
+                document.getElementById('notification-message').value = '';
+                
+                alert('Notification added successfully!');
+            });
+        }
+
+        // Load slideshow previews
+        function loadSlideshowPreviews() {
+            for (let i = 0; i < 7; i++) {
+                const slideKey = `slideshowImage${i}`;
+                const slideImage = storage.getItem(slideKey);
+                
+                if (slideImage) {
+                    const container = document.querySelector(`.slideshow-image-input[data-index="${i}"]`).closest('.slideshow-upload-item');
+                    const previewContainer = container.querySelector('.preview-container');
+                    const previewImage = container.querySelector('.preview-image');
+                    
+                    previewImage.src = slideImage.url;
+                    previewContainer.classList.remove('hidden');
+                }
+            }
+        }
+
+        // Load service previews
+        function loadServicePreviews() {
+            const serviceCategories = ['drawing-boards', 'mathematical-set', 'routers', 'sim-cards', 'sme-bundles', 'papers'];
+            
+            serviceCategories.forEach(category => {
+                loadServiceCategoryPreview(category);
+            });
+        }
+
+        // Load service category preview
+        function loadServiceCategoryPreview(category) {
+            const images = storage.getItem(`${category}Images`) || [];
+            const previewContainer = document.getElementById(`${category}-preview`);
+            
+            // Clear existing previews
+            previewContainer.innerHTML = '';
+            
+            // Add previews
+            images.forEach((image, index) => {
+                const previewItem = document.createElement('div');
+                previewItem.className = 'inline-block relative mr-2 mb-2';
+                
+                const img = document.createElement('img');
+                img.src = image.url;
+                img.className = 'w-16 h-16 object-cover rounded';
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs';
+                deleteButton.innerHTML = '×';
+                deleteButton.addEventListener('click', () => {
+                    images.splice(index, 1);
+                    storage.setItem(`${category}Images`, images);
+                    loadServiceCategoryPreview(category);
+                    initializeServiceSlideshows();
+                });
+                
+                previewItem.appendChild(img);
+                previewItem.appendChild(deleteButton);
+                previewContainer.appendChild(previewItem);
+            });
+        }
+
+        // Initialize owner panel
+        function initializeOwnerPanel() {
+            const ownerLoginButton = document.getElementById('owner-login-button');
+            const ownerLoginError = document.getElementById('owner-login-error');
+            const ownerLogin = document.getElementById('owner-login');
+            const ownerDashboard = document.getElementById('owner-dashboard');
+            
+            ownerLoginButton.addEventListener('click', () => {
+                const password = document.getElementById('owner-password').value;
+                const ownerPassword = storage.getItem('ownerPassword');
+                
+                if (password === ownerPassword) {
+                    ownerLogin.classList.add('hidden');
+                    ownerDashboard.classList.remove('hidden');
+                    
+                    // Load admin credentials
+                    const adminCredentials = storage.getItem('adminCredentials');
+                    document.getElementById('admin-new-username').value = adminCredentials.username;
+                    document.getElementById('admin-new-password').value = adminCredentials.password;
+                    
+                    // Load developer code
+                    document.getElementById('developer-html-code').value = storage.getItem('developerCode') || '';
+                } else {
+                    // Show password error modal
+                    document.getElementById('password-modal').style.display = 'block';
+                }
+            });
+            
+            // Update admin credentials
+            document.getElementById('update-admin-credentials').addEventListener('click', () => {
+                const newUsername = document.getElementById('admin-new-username').value.trim();
+                const newPassword = document.getElementById('admin-new-password').value;
+                
+                if (!newUsername || !newPassword) {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                    return;
+                }
+                
+                storage.setItem('adminCredentials', {
+                    username: newUsername,
+                    password: newPassword
+                });
+                
+                alert('Admin credentials updated successfully!');
+            });
+            
+            // Update developer code
+            document.getElementById('update-developer-code').addEventListener('click', () => {
+                const code = document.getElementById('developer-html-code').value;
+                storage.setItem('developerCode', code);
+                alert('Developer code updated successfully!');
+            });
+        }
+
+        // Share location with improved UI
+        function shareLocation() {
+            const locationBtn = document.getElementById('share-location-btn');
+            const locationStatus = document.getElementById('location-status');
+            
+            // Change button text and add loader
+            locationBtn.innerHTML = '<span class="location-loader mr-2"></span> Detecting location...';
+            locationBtn.disabled = true;
+            
+            // Show status loading message
+            locationStatus.classList.remove('hidden');
+            locationStatus.textContent = 'Requesting location...';
+            locationStatus.className = 'mt-2 text-sm text-gray-600';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Wait for 4 seconds to simulate loading
+                        setTimeout(() => {
+                            // Store the location in temporary variables for the order
+                            window.tempLatitude = position.coords.latitude;
+                            window.tempLongitude = position.coords.longitude;
+                            
+                            // Update button text and re-enable
+                            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Location Detected';
+                            locationBtn.disabled = false;
+                            
+                            // Show success message
+                            locationStatus.textContent = 'Location detected successfully!';
+                            locationStatus.className = 'mt-2 text-sm text-green-600 font-semibold';
+                        }, 4000);
+                    },
+                    (error) => {
+                        setTimeout(() => {
+                            let errorMessage = 'Error getting location: ';
+                            
+                            switch(error.code) {
+                                case error.PERMISSION_DENIED:
+                                    errorMessage += 'Location permission denied.';
+                                    break;
+                                case error.POSITION_UNAVAILABLE:
+                                    errorMessage += 'Location information unavailable.';
+                                    break;
+                                case error.TIMEOUT:
+                                    errorMessage += 'Location request timed out.';
+                                    break;
+                                default:
+                                    errorMessage += 'Unknown error occurred.';
+                                    break;
+                            }
+                            
+                            // Reset button
+                            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+                            locationBtn.disabled = false;
+                            
+                            // Show error
+                            locationStatus.textContent = errorMessage;
+                            locationStatus.className = 'mt-2 text-sm text-red-600';
+                        }, 4000);
+                    }
+                );
+            } else {
+                setTimeout(() => {
+                    // Reset button
+                    locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+                    locationBtn.disabled = false;
+                    
+                    // Show error
+                    locationStatus.textContent = 'Geolocation is not supported by this browser.';
+                    locationStatus.className = 'mt-2 text-sm text-red-600';
+                }, 4000);
+            }
+        }
+
+        // Order form functions
+        function openOrderForm(serviceType) {
+            // Pre-select the service category based on which service was clicked
+            const serviceSelect = document.getElementById('service-type');
+            
+            // Clear previous selection
+            serviceSelect.selectedIndex = 0;
+            
+            // Try to match a service option
+            if (serviceType === 'Drawing Board') {
+                // Don't select specific option, let user choose between new/used
+            } else if (serviceType === 'Mathematical Set') {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value === 'Mathematical set') {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            } else if (serviceType === 'Router') {
+                // Don't select specific option, let user choose between router types
+            } else if (serviceType === 'SIM Card') {
+                // No specific option for SIM cards in the dropdown
+            } else if (serviceType === 'SME Bundle') {
+                // No specific option for SME bundles in the dropdown
+            } else if (serviceType === 'Papers') {
+                // Don't select specific option, let user choose between paper types
+            }
+            
+            serviceTypeChanged();
+            document.getElementById('order-modal').style.display = 'block';
+            
+            // Clear temporary location variables
+            window.tempLatitude = null;
+            window.tempLongitude = null;
+            
+            // Reset location status
+            const locationStatus = document.getElementById('location-status');
+            locationStatus.classList.add('hidden');
+            
+            // Reset location button
+            const locationBtn = document.getElementById('share-location-btn');
+            locationBtn.innerHTML = '<i class="fas fa-map-marker-alt"></i> Turn On Location';
+            locationBtn.disabled = false;
+            
+            // Add click event for share location button
+            document.getElementById('share-location-btn').onclick = shareLocation;
+        }
+
+        function locationChanged() {
+            const location = document.getElementById('location').value;
+            const udomFields = document.getElementById('udom-fields');
+            const otherLocation = document.getElementById('other-location');
+            
+            if (location === 'Udom') {
+                udomFields.classList.remove('hidden');
+                otherLocation.classList.add('hidden');
+            } else if (location === 'Other') {
+                udomFields.classList.add('hidden');
+                otherLocation.classList.remove('hidden');
+            } else {
+                udomFields.classList.add('hidden');
+                otherLocation.classList.add('hidden');
+            }
+        }
+
+        function serviceTypeChanged() {
+            const serviceType = document.getElementById('service-type').value;
+            const amountField = document.getElementById('amount-field');
+            
+            if (serviceType) {
+                amountField.classList.remove('hidden');
+            } else {
+                amountField.classList.add('hidden');
+            }
+        }
+
+        function submitOrder() {
+            const name = document.getElementById('full-name').value.trim();
+            const phone = document.getElementById('phone-number').value.trim();
+            const location = document.getElementById('location').value;
+            const service = document.getElementById('service-type').value;
+            const amount = document.getElementById('amount').value;
+            
+            // Validate required fields
+            if (!name || !phone || !location || !service) {
+                // Show the validation modal instead of alert
+                document.getElementById('validation-modal').style.display = 'block';
+                return;
+            }
+            
+            // Get current user ID
+            const userId = getCurrentUserId();
+            
+            // Get location details based on location type
+            let locationDetails = {};
+            
+            if (location === 'Udom') {
+                locationDetails = {
+                    college: document.getElementById('college').value.trim(),
+                    blockNumber: document.getElementById('block-number').value.trim(),
+                    roomNumber: document.getElementById('room-number').value.trim()
+                };
+            } else if (location === 'Other') {
+                locationDetails = {
+                    otherLocation: document.getElementById('other-location-detail').value.trim()
+                };
+            }
+            
+            // Create order object with geolocation if available
+            const order = {
+                id: `order-${Date.now()}`,
+                userId: userId, // Add user ID to order
+                name: name,
+                phone: phone,
+                location: location,
+                service: service,
+                amount: amount,
+                timestamp: new Date().toISOString(),
+                ...locationDetails
+            };
+            
+            // Add geolocation if available
+            if (window.tempLatitude && window.tempLongitude) {
+                order.latitude = window.tempLatitude;
+                order.longitude = window.tempLongitude;
+            }
+            
+            // Save order
+            const orders = storage.getItem('orders') || [];
+            orders.push(order);
+            storage.setItem('orders', orders);
+            
+            // Auto navigate to the orders tab and reload orders
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to orders tab and content
+            document.querySelector('.tab[data-tab="orders"]').classList.add('active');
+            document.getElementById('orders-content').classList.add('active');
+            
+            // Load orders
+            loadOrders();
+            
+            // Prepare WhatsApp message
+            let message = `*New Order from ALFONCE SERVICES*\n\n`;
+            message += `*Name:* ${name}\n`;
+            message += `*Phone:* ${phone}\n`;
+            message += `*Location:* ${location}\n`;
+            
+            if (location === 'Udom') {
+                message += `*College/School/Institute:* ${locationDetails.college || 'N/A'}\n`;
+                message += `*Block Number:* ${locationDetails.blockNumber || 'N/A'}\n`;
+                message += `*Room Number:* ${locationDetails.roomNumber || 'N/A'}\n`;
+            } else {
+                message += `*Location Details:* ${locationDetails.otherLocation || 'N/A'}\n`;
+            }
+            
+            message += `*Service:* ${service}\n`;
+            if (amount) {
+                message += `*Amount:* ${amount}\n`;
+            }
+            
+            // Add GPS location if available
+            if (order.latitude && order.longitude) {
+                message += `\n*GPS Location:* https://maps.google.com/?q=${order.latitude},${order.longitude}\n`;
+            }
+            
+            // Open WhatsApp with the message
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/255766839045?text=${encodedMessage}`, '_blank');
+            
+            // Close modal and reset form
+            closeModal('order-modal');
+            resetOrderForm();
+        }
+
+        function resetOrderForm() {
+            document.getElementById('full-name').value = '';
+            document.getElementById('phone-number').value = '';
+            document.getElementById('location').selectedIndex = 0;
+            document.getElementById('service-type').selectedIndex = 0;
+            document.getElementById('amount').value = '';
+            document.getElementById('college').value = '';
+            document.getElementById('block-number').value = '';
+            document.getElementById('room-number').value = '';
+            document.getElementById('other-location-detail').value = '';
+            
+            document.getElementById('udom-fields').classList.add('hidden');
+            document.getElementById('other-location').classList.add('hidden');
+            document.getElementById('amount-field').classList.add('hidden');
+            document.getElementById('location-status').classList.add('hidden');
+            
+            // Clear temporary location variables
+            window.tempLatitude = null;
+            window.tempLongitude = null;
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me/255766839045', '_blank');
+        }
+
+        // Send email functionality
+        function initializeContactForm() {
+            document.getElementById('send-email-button').addEventListener('click', function() {
+                const email = document.getElementById('contact-email').value.trim();
+                const message = document.getElementById('contact-message').value.trim();
+                
+                if (!email || !message) {
+                    // Show validation modal
+                    document.getElementById('validation-modal').style.display = 'block';
+                    return;
+                }
+                
+                // Open Gmail with pre-filled message
+                const subject = 'Inquiry from ALFONCE SERVICES website';
+                const body = `Message from: ${email}\n\n${message}`;
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Agentrezo.37@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                window.open(gmailUrl, '_blank');
+                
+                // Clear form
+                document.getElementById('contact-email').value = '';
+                document.getElementById('contact-message').value = '';
+            });
+        }
+
+        // Check dark mode
+        function checkDarkMode() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                if (event.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            });
+        }
+
+        // Initialize application
+        window.addEventListener('DOMContentLoaded', () => {
+            checkDarkMode();
+            initializeDefaultData();
+            initializeTabs();
+            initializeSlideshow();
+            initializeServiceSlideshows();
+            initializeAdminPanel();
+            initializeOwnerPanel();
+            initializeContactForm();
+            loadCustomServicesToMainPage();
+        });
+    </script>
+</body>
+</html>
